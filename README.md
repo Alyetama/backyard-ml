@@ -21,7 +21,7 @@ DB_CONNECTION_STRING=
 DB_NAME=label_studio
 ```
 
-This file is **very important**, and we will be using it a lot. Keep it somewhere safe.
+This file is **very important**, and you will be using it a lot, so keep it somewhere safe.
 
 
 </details>
