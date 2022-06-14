@@ -58,7 +58,7 @@ This database will be used to store all the information related to the data gene
 2. Pick a name for your project, then click on `labeling setup` and select `object detection with bounding boxes`.
 3. Remove the two default labels, then add the labels that you expect to see in your dataset (you can edit this later to add more). Make sure to add one label per line (note: the label should **not** include a backslash `\`!). Click on `Add`, then `save`.
 4. Go the project settings (top right) -> click on `cloud storage` -> `add source storage`.
-5. Under `Bucket Name` and `Region Name`fields, paste your bucket and region name from earlier in Step 2.
+5. Under `Bucket Name` and `Region Name` fields, paste your bucket and region name from earlier in Step 2.
 
 ![bucket_info](https://i.imgur.com/VQJg5Tv.jpeg)
 
