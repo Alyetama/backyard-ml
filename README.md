@@ -1,4 +1,4 @@
-# DEMO
+# DEMO: For Beginners (zero coding experience)
 
 # Data Preparation
 
