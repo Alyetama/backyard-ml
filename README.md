@@ -78,6 +78,6 @@ The upload interface:
 
 After upload, sync:
 
-![sync](https://i.imgur.com/e8lyjDh.jpeg)
+![sync](https://i.imgur.com/AZ7UKoy.jpeg)
 
 Now you can see the images you uploaded as tasks. You can label the objects in the image by clicking on the label, then drawing a bounding box around the object.
