@@ -7,7 +7,7 @@
 1. Sign up on Heroku: https://signup.heroku.com/ and verify your email.
 2. Click this button: [<img src="https://www.herokucdn.com/deploy/button.svg" height="30px">](https://heroku.com/deploy?template=https://github.com/heartexlabs/label-studio/tree/heroku-persistent-pg).
 3. Pick any name for the app (e.g., `label-studio-0`).
-4. Change `DISABLE_SIGNUP_WITHOUT_LINK` from `0` to `1`.
+4. Change `DISABLE_SIGNUP_WITHOUT_LINK` from `0` to `1`. For `USERNAME`, type your **email address**.
 5. Enter a username and password for the default account that you will use for label-studio.
 6. Click `deploy`!
 
