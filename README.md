@@ -82,3 +82,33 @@ Now anything you upload the bucket can be synced to label studio!
 ![sync](https://i.imgur.com/AZ7UKoy.jpeg)
 
 Now you can see the images you uploaded as tasks in your label-studio project. You can label the objects in the image by opening a task -> clicking the label, then drawing a bounding box around the object -> submit.
+
+
+---
+
+## Model training and prediction
+
+1. If you don't have an account yet, sign up on GitHub [here](https://github.com/signup) and verify your email.
+2. First, fork the model repository by click on this button: [![](https://img.shields.io/badge/Fork-282a36?logo=github&style=for-the-badge)](https://github.com/bird-feeder/BirdFSD-YOLOv5/fork), then click `Create fork`.
+3. In the fork page (the page that you will see after you clicked `create fork`). Click on your forked repository `settings` -> `Secrets`.
+
+<img src="https://i.imgur.com/xlVfoxX.png"  width="720"> 
+
+4. For every name in the table below, copy and paste the name to the `Name` field and use the value that correspond to that name for the secret's `Value` field. Repeat this for every secret listed below.
+
+<img src="https://i.imgur.com/fOKMgHy.png"  width="720"> 
+
+
+| Name                 | Value                                                                                                                                               |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| DB_CONNECTION_STRING | Use the connection string you copied in Step 3 for this secret's value                                                                              |
+| DB_NAME              | label_studio                                                                                                                                        |
+| LS_HOST              | Use the URL of your label-studio app for this secret's value (for example: https://my-labelstudio.herokuapp.com) – make sure you include `https://` |
+| S3_ACCESS_KEY        | Use the value of `Access Key ID` you used in Step 4 for this secret's value                                                                         |
+| S3_SECRET_KEY        | Use the value of `Secret Key` you used in Step 4 for this secret's value                                                                               |
+| S3_REGION            | us-east-1                                                                                                                                           |
+| S3_ENDPOINT          | https://s3.wasabisys.com                                                                                                                            |
+| TOKEN                | Go to your label-studio app, click on your initials icon (top right) -> `Account & Settings`, then use the value of `Access Token` for this secret's value                   |
+
+
+
