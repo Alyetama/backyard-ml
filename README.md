@@ -1,5 +1,31 @@
 # DEMO: For Beginners (zero coding experience)
 
+## Secrets File
+
+<details>
+  <summary>Step 0: Create A Secrets File</summary>
+ 
+### Step 0: Create A Secrets File
+
+Create an empty text file, name it `secrets.txt`, then copy and paste the template below and save it.
+
+```YAML
+LS_HOST=
+TOKEN=
+S3_BUCKET=
+S3_REGION=us-east-1
+S3_ACCESS_KEY=
+S3_SECRET_KEY=
+S3_ENDPOINT=https://s3.wasabisys.com
+DB_CONNECTION_STRING=
+DB_NAME=label_studio
+```
+
+This file is **very important**, and we will be using it a lot. Keep it somewhere safe.
+
+
+</details>
+
 ## Data Preparation (Step 1 to 4)
 
 <details>
@@ -18,7 +44,20 @@ When your `label-studio` app is deployed, you will see something that like this:
 
 ![ls_deploy_ok](https://i.imgur.com/X8NuIkk.png)
 
-Click on `View`, then login with the username and password you entered earlier.
+7. Click on `View`, then login with your username and password. Copy the base URL of your home page and use it for `LS_HOST` in your `secrets.txt` file. For example: https://my-labelstudio.herokuapp.com – make sure you include `https://`, and don't include anything after `.com`.
+  
+```YAML
+LS_HOST=https://replace-me-with-your-app-url.herokuapp.com
+...
+```
+  
+8. Click on your initials icon (top right) -> Account & Settings, then copy the value of `Access Token`. Add the token value to the `TOKEN` variable in your `secrets.txt` file. For example:
+  
+```YAML
+...
+TOKEN=SoMe-sUpEr-sEcReT-LaBeL-StUdIo-tOkEn
+...
+```
 
 </details>
 
@@ -37,10 +76,39 @@ There are a lot of options for S3-compatible object storage service, but here, w
 
 ![create_bucket](https://i.imgur.com/9Sxl8tg.png)
 
-3. Pick up a name for your bucket (e.g., `data-0`), select a region (e.g., `us-east-1`), then click `Next`.
+3. Pick up a name for your bucket (e.g., `data-0`), select a region (e.g., `us-east-1`), then click `Next`. Copy the value of the bucket and region name to your `secrets.txt` file. For example:
+  
+```YAML
+...
+S3_BUCKET=My-bUcKeT-NaMe
+S3_REGION=us-east-1
+...
+```
+
 4. Keep the options as they are, then click `Next`, then click `CREATE BUCKET`.
 
-That's it! You made an S3 bucket! Now leave the page open, because we will go back to it later to upload our data.
+That's it! You made an S3 bucket! Now generate access id and secret to connect to the bucket.
+
+5. Click on the key icon on the left bar -> click on `CREATE NEW ACCESS KEY`. Leave the default selection as it is, then click `create`.
+
+![Generate key](https://i.imgur.com/D9Gggvu.jpeg)
+
+6. Copy the keys to clipboard, then use the value of the access key id for `S3_ACCESS_KEY` and the secret key for `S3_SECRET_KEY` in your `secrets.txt` file (don't paste the name of the variables that were automatically copied, just their values). For example:
+
+```YAML
+...
+S3_ACCESS_KEY=mY-s3-BuCkEt-aCcEsS-KeY
+S3_SECRET_KEY=mY-sUpEr-sEcReT-S3-bUcKeT-SeCrEt-kEy
+...
+```
+  
+7. Visit [this page](https://wasabi-support.zendesk.com/hc/en-us/articles/360015106031-What-are-the-service-URLs-for-Wasabi-s-different-storage-regions-) and copy the Service URL that correspond to your bucket's region. Then use it's value for `S3_ENDPOINT` (e.g.,: the endpoint for `us-east-1` is `https://s3.wasabisys.com`). Make sure to add `https://` at the start of the endpoint URL! For example:
+  
+```YAML
+...
+S3_ENDPOINT=https://s3.wasabisys.com
+...
+```
 
 </details>
 
@@ -58,9 +126,17 @@ This database will be used to store all the information related to the data gene
 3. Keep the options as they are. You can change the cluster name if you want, or just keep the default name.
 4. Click `Create Cluster`, then pick a username and a strong password, then click `Create user`.
 5. For the `IP Address`, enter `0.0.0.0/0` -> `Add Entry`. Then, click `Finish and close`.
-6. Click `Go to database` -> click `Connect`. Select `Python` for the driver and `3.6 or later` for version. Copy the connection string to a note file, then close the window.
-
+6. Click `Go to database` -> click `Connect`. Select `Python` for the driver and `3.6 or later` for version.
+ 
 ![mongodb_con_str](https://i.imgur.com/9IwxYFg.png)
+
+7. Copy the connection string and paste it as a value for `DB_CONNECTION_STRING` in your `secrets.txt` file. For example:
+  
+```YAML
+...
+DB_CONNECTION_STRING=mongodb+srv://server.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+...
+```
 
 </details>
 
@@ -75,20 +151,10 @@ This database will be used to store all the information related to the data gene
 2. Pick a name for your project, then click on `labeling setup` and select `object detection with bounding boxes`.
 3. Remove the two default labels, then add the labels that you expect to see in your dataset (you can edit this later to add more). Make sure to add one label per line (note: the label should **not** include a backslash `\`!). Click on `Add`, then `save`.
 4. Go the project settings (top right) -> click on `cloud storage` -> `add source storage`.
-5. Under `Bucket Name` and `Region Name` fields, paste your bucket and region name from earlier in Step 2.
-
-![bucket_info](https://i.imgur.com/VQJg5Tv.jpeg)
-
-6. Under `S3 endpoint` field, copy the Service URL from this page (https://wasabi-support.zendesk.com/hc/en-us/articles/360015106031-What-are-the-service-URLs-for-Wasabi-s-different-storage-regions-) that correspond to your bucket's region, and paste it under `S3 endpoint`. For example, For `us-east-1`, the endpoint is `https://s3.wasabisys.com` (make sure to add `https://` at the start of the endpoint URL!).
-7. Generate a access key id and secret by visiting Wasabi's console page (https://console.wasabisys.com) -> click on the key icon on the left -> click on `CREATE NEW ACCESS KEY`. Leave the default selection as it is, an click `create`.
-
-![Generate key](https://i.imgur.com/D9Gggvu.jpeg)
-
-9. Copy the keys to clipboard, then paste the value of the access key and secret key under `Access Key ID` and `Secret Key` in label-studio, respectively (clear the fields first). Clear the `Session token` field and leave it empty.
-11. Toggle `Treat every bucket object as a source file` and `Recursive scan` to turn them ON, the click `Add storage`.
+5. For `Bucket Name`, `Region Name`, `S3 endpoint`, `Access Key ID`, and `Secret Key` fields, use the values of `S3_BUCKET`, `S3_REGION`, `S3_ENDPOINT`, `S3_ACCESS_KEY`, `S3_SECRET_KEY` from your `secrets.txt` file, respectively.
+6. Clear the `Session token` field and leave it empty. Toggle `Treat every bucket object as a source file` and `Recursive scan` to turn them ON, then click `Add storage`.
 
 Now anything you upload the bucket can be synced to label studio!
-
 
 **The upload interface:**
 
@@ -98,7 +164,7 @@ Now anything you upload the bucket can be synced to label studio!
 
 ![sync](https://i.imgur.com/AZ7UKoy.jpeg)
 
-Now you can see the images you uploaded as tasks in your label-studio project. You can label the objects in the image by opening a task -> clicking the label, then drawing a bounding box around the object -> submit.
+Now if you upload any image to your bucket and sync the storage, you will be able see the images you uploaded as tasks in your label-studio project. You can label the objects in the image by opening a task -> clicking the label, then drawing a bounding box around the object -> submit.
 
 </details>
 
@@ -117,21 +183,10 @@ Now you can see the images you uploaded as tasks in your label-studio project. Y
 
 <img src="https://i.imgur.com/xlVfoxX.png"  width="720"> 
 
-4. For every name in the table below, copy and paste the name to the `Name` field and use the value that correspond to that name for the secret's `Value` field. Repeat this for every secret listed below.
+4. For every variable in your `secrets.txt` file, copy and paste the name of the variable (before `=`) to the `Name` field and use the value that correspond to that name (after `=`) for the secret's `Value` field. Repeat this for every secret in your `secrets.txt` file.
 
 <img src="https://i.imgur.com/fOKMgHy.png"  width="720"> 
 
-
-| Name                 | Value                                                                                                                                               |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| DB_CONNECTION_STRING | Use the connection string you copied in Step 3 for this secret's value                                                                              |
-| DB_NAME              | label_studio                                                                                                                                        |
-| LS_HOST              | Use the URL of your label-studio app for this secret's value (for example: https://my-labelstudio.herokuapp.com) – make sure you include `https://` |
-| S3_ACCESS_KEY        | Use the value of `Access Key ID` you used in Step 4 for this secret's value                                                                         |
-| S3_SECRET_KEY        | Use the value of `Secret Key` you used in Step 4 for this secret's value                                                                               |
-| S3_REGION            | us-east-1                                                                                                                                           |
-| S3_ENDPOINT          | https://s3.wasabisys.com                                                                                                                            |
-| TOKEN                | Go to your label-studio app, click on your initials icon (top right) -> `Account & Settings`, then use the value of `Access Token` for this secret's value                   |
-
 </details>
+
 
