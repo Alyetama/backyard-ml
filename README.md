@@ -56,15 +56,28 @@ This database will be used to store all the information related to the data gene
 
 1. Go back to your label-studio application. Click on `Create project`.
 2. Pick a name for your project, then click on `labeling setup` and select `object detection with bounding boxes`.
-3. Remove the two default labels (`car` and `plane`), then add the labels that you expect to see in your dataset (you can edit this later to add more). Make sure to add one label per line (note: the label should **not** include a backslash `\`!).
-4. Click on `Add` button. Then, click `save`.
-5. Go the project settings (top right) -> click on `cloud storage` -> `add source storage`.
-6. Under `Bucket Name` field, paste your bucket name from earlier in Step 2.
-7. Under `Region Name` field, paste the region name from earlier in Step 2.
+3. Remove the two default labels (`car` and `plane`), then add the labels that you expect to see in your dataset (you can edit this later to add more). Make sure to add one label per line (note: the label should **not** include a backslash `\`!). Click on `Add`, then `save`.
+4. Go the project settings (top right) -> click on `cloud storage` -> `add source storage`.
+5. Under `Bucket Name` and `Region Name`fields, paste your bucket and region name from earlier in Step 2.
 
 ![bucket_info](https://i.imgur.com/VQJg5Tv.jpeg)
 
-9. Under `S3 endpoint` field, copy the Service URL from this page (https://wasabi-support.zendesk.com/hc/en-us/articles/360015106031-What-are-the-service-URLs-for-Wasabi-s-different-storage-regions-) that correspond to your bucket's region, and paste it under `S3 endpoint`. For example, For `us-east-1`, the endpoint is `s3.wasabisys.com`.
-10. Generate a access key id and secret by visiting Wasabi's console page (https://console.wasabisys.com) -> click on the key icon on the left -> click on `CREATE NEW ACCESS KEY`.
+6. Under `S3 endpoint` field, copy the Service URL from this page (https://wasabi-support.zendesk.com/hc/en-us/articles/360015106031-What-are-the-service-URLs-for-Wasabi-s-different-storage-regions-) that correspond to your bucket's region, and paste it under `S3 endpoint`. For example, For `us-east-1`, the endpoint is `https://s3.wasabisys.com` (make sure to add `https://` at the start of the endpoint!).
+7. Generate a access key id and secret by visiting Wasabi's console page (https://console.wasabisys.com) -> click on the key icon on the left -> click on `CREATE NEW ACCESS KEY`. Leave the default selection as it is, an click `create`.
 
 ![Generate key](https://i.imgur.com/D9Gggvu.jpeg)
+
+9. Copy the keys to clipboard, then paste the value of the access key and secret key under `Access Key ID` and `Secret Key` in label-studio, respectively (clear the fields first). Clear the `Session token` field and leave it empty.
+11. Toggle `Treat every bucket object as a source file` and `Recursive scan` to turn them ON, the click `Add storage`.
+
+Now anything you upload the bucket can be synced to label studio!
+
+The upload interface:
+
+![upload](https://i.imgur.com/u4YwBKj.jpeg)
+
+After upload, sync:
+
+![sync](https://i.imgur.com/e8lyjDh.jpeg)
+
+Now you can see the images you uploaded as tasks. You can label the objects in the image by clicking on the label, then drawing a bounding box around the object.
