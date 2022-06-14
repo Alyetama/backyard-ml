@@ -112,7 +112,7 @@ Now you can see the images you uploaded as tasks in your label-studio project. Y
 ### Step 5: Set up the model prediction-workflow
 
 1. If you don't have an account yet, sign up on GitHub [here](https://github.com/signup) and verify your email.
-2. First, fork the model repository by click on this button: [![](https://img.shields.io/badge/Fork-282a36?logo=github&style=for-the-badge)](https://github.com/bird-feeder/BirdFSD-YOLOv5/fork), then click `Create fork`.
+2. First, [fork the model repository](https://github.com/bird-feeder/BirdFSD-YOLOv5/fork) by clicking on this button: [![](https://img.shields.io/badge/Fork-282a36?logo=github&style=for-the-badge)](https://github.com/bird-feeder/BirdFSD-YOLOv5/fork), then click `Create fork`.
 3. In the fork page (the page that you will see after you clicked `create fork`). Click on your forked repository `settings` -> `Secrets`.
 
 <img src="https://i.imgur.com/xlVfoxX.png"  width="720"> 
