@@ -130,11 +130,12 @@ This database will be used to store all the information related to the data gene
  
 ![mongodb_con_str](https://i.imgur.com/9IwxYFg.png)
 
-7. Copy the connection string and paste it as a value for `DB_CONNECTION_STRING` in your `secrets.txt` file. For example:
+7. Copy the connection string and paste it as a value for `DB_CONNECTION_STRING` in your `secrets.txt` file, and leave the database name as it is. For example:
   
 ```YAML
 ...
 DB_CONNECTION_STRING=mongodb+srv://server.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+DB_NAME=label_studio
 ...
 ```
 
