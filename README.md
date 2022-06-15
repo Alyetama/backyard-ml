@@ -197,19 +197,19 @@ Now if you upload any image to your bucket and sync the storage, you will be abl
   
 - You can train your model when you have "enough" annotations. The number of annotations required for a reliable model will differ based on your use case and the size of your dataset (you can learn more [here](https://docs.ultralytics.com/tutorials/training-tips-best-results/)). Train your model every now and then after you annotate a sizeable chunk of your data (e.g., after every 100, 500 or 1000 new annotation). The more annotated data you add, the better the model will learn.
   
-0. [Sign up to W&B](https://app.wandb.ai/login?signup=true) to tack your training (optional, but recommended).
+1. [Sign up to W&B](https://app.wandb.ai/login?signup=true) to track your training (optional, but recommended).
 
-1. Log in to your Google account, then click on this button to open a notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bird-feeder/BirdFSD-YOLOv5/blob/main/notebooks/BirdFSD_YOLOv5_train.ipynb)
-2. Click on  `Copy to Drive`.
+2. Log in to your Google account, then click on this button to open a notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bird-feeder/BirdFSD-YOLOv5/blob/main/notebooks/BirdFSD_YOLOv5_train.ipynb)
+3. Click on  `Copy to Drive`.
  
 <img src="https://i.imgur.com/JspOAC0.png"  width="720"> 
 
   
-2. Click on the folder icon, then Drag and drop `secrets.txt` to the files section in Google Colab.
+4. Click on the folder icon, then Drag and drop `secrets.txt` to the files section in Google Colab.
 <img src="https://i.imgur.com/j74yVQ7.png"  width="720"> 
 
-3. Click right on the file -> `Rename file`, then rename it to `.env` (don't worry if you can't see the file after renaming it, it just became a hidden file).
+5. Click right on the file -> `Rename file`, then rename it to `.env` (don't worry if you can't see the file after renaming it, it just became a hidden file).
 
 <img src="https://i.imgur.com/cPF36Cw.png"  width="720"> 
   
-3. Follow the instructions in the notebook to train the model. 
+6. Follow the instructions in the notebook to train the model. 
