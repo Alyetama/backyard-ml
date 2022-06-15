@@ -199,7 +199,7 @@ Now if you upload any image to your bucket and sync the storage, you will be abl
   
 1. [Sign up to W&B](https://app.wandb.ai/login?signup=true) to track your training (optional, but recommended).
 
-2. Log in to your Google account, then click on this button to open a notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bird-feeder/BirdFSD-YOLOv5/blob/main/notebooks/BirdFSD_YOLOv5_train.ipynb)
+2. Log in to your Google account, then click on this button to open the training notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bird-feeder/BirdFSD-YOLOv5/blob/main/notebooks/BirdFSD_YOLOv5_train.ipynb)
 3. Click on  `Copy to Drive`.
  
 <img src="https://i.imgur.com/JspOAC0.png"  width="720"> 
