@@ -171,12 +171,12 @@ Now if you upload any image to your bucket and sync the storage, you will be abl
 
 ---
 
-## Model training and prediction (Step 5 to 6)
+## AI Model training and prediction (Step 5 to 6)
 
 <details>
-  <summary>Step 5: Set up the model prediction-workflow</summary>
+  <summary>Step 5: Setting up the model prediction-workflow</summary>
  
-### Step 5: Set up the model prediction-workflow
+### Step 5: Setting up the model prediction-workflow
 
 1. If you don't have an account yet, sign up on GitHub [here](https://github.com/signup) and verify your email.
 2. First, [fork the model repository](https://github.com/bird-feeder/BirdFSD-YOLOv5/fork) by clicking on this button: [![](https://img.shields.io/badge/Fork-282a36?logo=github&style=for-the-badge)](https://github.com/bird-feeder/BirdFSD-YOLOv5/fork), then click `Create fork`.
@@ -190,4 +190,26 @@ Now if you upload any image to your bucket and sync the storage, you will be abl
 
 </details>
 
+<details>
+  <summary>Step 6: Training the model</summary>
+ 
+### Step 6: Training the model
+  
+- You can train your model when you have "enough" annotations. The number of annotations required for a reliable model will differ based on your use case and the size of your dataset (you can learn more [here](https://docs.ultralytics.com/tutorials/training-tips-best-results/)). Train your model every now and then after you annotate a sizeable chunk of your data (e.g., after every 100, 500 or 1000 new annotation). The more annotated data you add, the better the model will learn.
+  
+0. [Sign up to W&B](https://app.wandb.ai/login?signup=true) to tack your training (optional, but recommended).
 
+1. Log in to your Google account, then click on this button to open a notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bird-feeder/BirdFSD-YOLOv5/blob/main/notebooks/BirdFSD_YOLOv5_train.ipynb)
+2. Click on  `Copy to Drive`.
+ 
+<img src="https://i.imgur.com/JspOAC0.png"  width="720"> 
+
+  
+2. Click on the folder icon, then Drag and drop `secrets.txt` to the files section in Google Colab.
+<img src="https://i.imgur.com/j74yVQ7.png"  width="720"> 
+
+3. Click right on the file -> `Rename file`, then rename it to `.env` (don't worry if you can't see the file after renaming it, it just became a hidden file).
+
+<img src="https://i.imgur.com/cPF36Cw.png"  width="720"> 
+  
+3. Follow the instructions in the notebook to train the model. 
