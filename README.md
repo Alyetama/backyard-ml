@@ -187,6 +187,13 @@ Now if you upload any image to your bucket and sync the storage, you will be abl
 4. For every variable in your `secrets.txt` file, copy and paste the name of the variable (before `=`) to the `Name` field and use the value that correspond to that name (after `=`) for the secret's `Value` field. Repeat this for every secret in your `secrets.txt` file.
 
 <img src="https://i.imgur.com/fOKMgHy.png"  width="720"> 
+  
+5. Enable workflows in your fork:
+<img src="https://i.imgur.com/aF5U6J0.png"  width="720"> 
+
+6. Then, click on and enable all the workflows that are highlighted wuth a red square in the image below:
+<img src="https://i.imgur.com/pj0Fe9e.png"  width="720"> 
+
 
 </details>
 
