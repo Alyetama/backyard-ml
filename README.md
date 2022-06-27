@@ -102,11 +102,11 @@ S3_SECRET_KEY=mY-sUpEr-sEcReT-S3-bUcKeT-SeCrEt-kEy
 ...
 ```
   
-7. Visit [this page](https://wasabi-support.zendesk.com/hc/en-us/articles/360015106031-What-are-the-service-URLs-for-Wasabi-s-different-storage-regions-) and copy the Service URL that correspond to your bucket's region. Then use it's value for `S3_ENDPOINT` (e.g.,: the endpoint for `us-east-1` is `https://s3.wasabisys.com`). Make sure to add `https://` at the start of the endpoint URL! For example:
+7. Visit [this page](https://wasabi-support.zendesk.com/hc/en-us/articles/360015106031-What-are-the-service-URLs-for-Wasabi-s-different-storage-regions-) and copy the Service URL that correspond to your bucket's region. Then use it's value for `S3_ENDPOINT` (e.g.,: the endpoint for `us-east-1` is `https://s3.wasabisys.com`). Remove `https://` from the URL. For example:
   
 ```YAML
 ...
-S3_ENDPOINT=https://s3.wasabisys.com
+S3_ENDPOINT=s3.wasabisys.com
 ...
 ```
 
@@ -152,8 +152,9 @@ DB_NAME=label_studio
 2. Pick a name for your project, then click on `labeling setup` and select `object detection with bounding boxes`.
 3. Remove the two default labels, then add the labels that you expect to see in your dataset (you can edit this later to add more). Make sure to add one label per line (note: the label should **not** include a backslash `\`!). Click on `Add`, then `save`.
 4. Go the project settings (top right) -> click on `cloud storage` -> `add source storage`.
-5. For `Bucket Name`, `Region Name`, `S3 endpoint`, `Access Key ID`, and `Secret Key` fields, use the values of `S3_BUCKET`, `S3_REGION`, `S3_ENDPOINT`, `S3_ACCESS_KEY`, `S3_SECRET_KEY` from your `secrets.txt` file, respectively.
-6. Clear the `Session token` field and leave it empty. Toggle `Treat every bucket object as a source file` and `Recursive scan` to turn them ON, then click `Add storage`.
+5. For `Bucket Name`, `Region Name`, `Access Key ID`, and `Secret Key` fields, use the values of `S3_BUCKET`, `S3_REGION`, `S3_ENDPOINT`, `S3_ACCESS_KEY`, `S3_SECRET_KEY` from your `secrets.txt` file, respectively.
+6. For `S3 endpoint` use `S3_ENDPOINT` value from  your `secrets.txt` file, but append `https://` at the start of the URL.
+7. Clear the `Session token` field and leave it empty. Toggle `Treat every bucket object as a source file` and `Recursive scan` to turn them ON, set the expiry time to 120, then click `Add storage`.
 
 Now anything you upload the bucket can be synced to label studio!
 
